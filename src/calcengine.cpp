@@ -27,7 +27,7 @@ namespace EmuCalc {
     } 
 
     void CalcEngine::loadMem() { 
-        *m_currentNumber = m_memNumber; //also check decimal flags and stuff
+        *m_currentNumber = m_memNumber;
         *m_currentDecimalFlag = m_memDecimalFlag;
         hasChanged();
     }
