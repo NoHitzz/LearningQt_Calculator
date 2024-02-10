@@ -1,0 +1,12 @@
+**/.DS_Store
+**/.cache
+
+MAKEFILE
+moc*
+*.o
+**.app
+
+**/mockup
+resources/*.sh
+resources/*.iconset
+compile_commands.json
