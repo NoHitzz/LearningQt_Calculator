@@ -72,7 +72,7 @@ namespace EmuCalc {
 
 
     void MainWindow::initializeButtons() {
-        // setting up buttons in array
+        // setting up buttons
         for(size_t i{}; i < m_numberOfButtons; i++) {
             m_buttons[i] = new QPushButton;
             m_buttons[i]->setFont(QFont("Helvetica", 24));
@@ -80,25 +80,26 @@ namespace EmuCalc {
 
             // button styles
             if(i <= 10) {
+                // light grey
                 m_buttons[i]->setStyleSheet(R"V(
             QPushButton { color: #EBEBEB; background-color: #7B7B7B; border: 1px solid #505050; padding: 0px; }
             QPushButton::pressed { color: #EBEBEB; background-color: #B0B0B0; border: 1px solid #505050; padding: 0px } 
             )V");
             } else if (i > 10 && i <= 17) {
-                //dark grey
+                // dark grey
                 m_buttons[i]->setStyleSheet(R"V(
             QPushButton { color: #EBEBEB; background-color: #616161; border: 1px solid #505050; padding: 0px; }
             QPushButton::pressed { color: #EBEBEB; background-color: #7B7B7B; border: 1px solid #505050; padding: 0px } 
             )V");
             } else {
-                //orange
+                // orange
                 m_buttons[i]->setStyleSheet(R"V(
             QPushButton { color: #EBEBEB; background-color: #F2A23C; border: 1px solid #505050; padding: 0px; }
             QPushButton::pressed { color: #EBEBEB; background-color: #C1802E; border: 1px solid #505050; padding: 0px } 
             )V");
             }
 
-            // rows and columns of gridlayout 
+            // adding buttons to gridlayout 
             if (i == 10) {
                 // zero button and dot button
                 m_buttons[0]->setMinimumSize(m_bttnSizeX*2, m_bttnSizeY);
@@ -118,17 +119,19 @@ namespace EmuCalc {
                 m_buttons[i]->setText(QString::number(i));
 
             } else if(i > 10 && i < 17) {
+                // dark grey auxiliary buttons
                 int row = floor((i-11)/(m_gridColumns-1))+1;
                 int column = (i-11)%(m_gridColumns-1);
                 m_mainGridLayout->addWidget(m_buttons[i], row, column, Qt::AlignTop | Qt::AlignHCenter);
 
             } else if(i >= 17) {
+                // orange math operator buttons
                 int row = i-17+1;
                 int column = m_gridColumns-1;
                 m_mainGridLayout->addWidget(m_buttons[i], row, column, Qt::AlignTop | Qt::AlignHCenter);
-
             }
 
+            // button object names and signal slot connections
             m_buttons[i]->setObjectName(QString::number(i + m_bttnIdOffset));
             connect(m_buttons[i], SIGNAL(clicked()), this, SLOT(buttonInput()));
         }
@@ -292,9 +295,10 @@ namespace EmuCalc {
 
     /* -- Slot Implementations -- */
     void MainWindow::buttonInput() {
-        QPushButton* buttonSender = qobject_cast<QPushButton*>(sender()); // retrieve the button clicked
-        QString buttonText = buttonSender->text(); // retrive the text from the button clicked
+        QPushButton* buttonSender = qobject_cast<QPushButton*>(sender());     // retrieve the button clicked
+        QString buttonText = buttonSender->text();                            // retrieve the text from the button clicked
         int code = buttonSender->objectName().toInt() - m_bttnIdOffset;
+
         if(code >= 0 && code < 10)
             numberInput(code);
         else  
