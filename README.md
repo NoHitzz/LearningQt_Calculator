@@ -6,6 +6,8 @@ I wrote this as an exercise to learn the Qt library. Most importantly I didn't w
 Doubles are used for all calculations, this leads to obvious restrictions and inaccuracies.  
 This project uses the QMake build system. 
 
+![Calculator app screenshot](/screenshots/Calculator_screenshot.png?raw=true "Calculator Screenshot")
+
 ## Installation
 
 Use ```qmake Calculator.pro``` to generate a Makefile and ```make``` to build the project.
