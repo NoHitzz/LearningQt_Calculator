@@ -1,5 +1,5 @@
 
-# Qt Calculator Example 
+# Qt Calculator Exercise 
 
 A simple calculator with a Qt GUI written in C++.   
 I wrote this as an exercise to learn the Qt library. Most importantly I didn't want to use Qt Designer, everything is done programmatically.  
