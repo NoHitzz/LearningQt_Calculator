@@ -18,6 +18,5 @@ Do not use this as a calculator, unless you don't value precision and work with 
 
 ## License
 
-[GPLv3](https://choosealicense.com/licenses/gpl-3.0)  
 The app icon was made by me, the same license applies.
 
