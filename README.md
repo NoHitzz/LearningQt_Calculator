@@ -14,7 +14,7 @@ Use ```qmake Calculator.pro``` to generate a Makefile and ```make``` to build th
 
 ## Usage
 
-Do not use this as a Calculator, unless you don't value precision and work with small numbers :)
+Do not use this as a calculator, unless you don't value precision and work with small numbers :)
 
 ## License
 
