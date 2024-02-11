@@ -9,4 +9,5 @@ moc*
 **/mockup
 resources/*.sh
 resources/*.iconset
+resources/*.afdesign
 compile_commands.json
